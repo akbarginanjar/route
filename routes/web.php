@@ -42,3 +42,47 @@ Route::get('/cita', function () {
 Route::get('/about', function () {
     return view('akbar/about');
 });
+
+Route::get('/index', function () {
+    return view('akbar/index');
+});
+
+Route::get('page/{page?}', function ($hal = 2) {
+    return "Halaman <b>$hal</b>";
+});
+
+Route::get('user/{name?}', function ($nama = "Hello World") {
+    return "<b>$nama</b>";
+});
+
+// Route::get('pesan/{pesan?}', function ($makanan = "roti", $minuman = "susu") {
+//     if ($makanan == "") {
+//         echo "anda tidak memesan makanan silahkan pulang";
+//     } else if ($makanan == $makanan) {
+//         echo "Anda pesan makanan : " . $makanan;
+//     }
+// });
+
+Route::get('lapar/{makanan?}/{minuman?}/{cemilan?}', function ($makanan = "",$minuman = "",$cemilan = "") {
+    if ($makanan == "" && $minuman == "" && $cemilan == "") {
+        $sa = "Anda Tidak Pesan, Silahkan Pulang";
+    }
+            if ($makanan != "" ) {
+            $sa = "Pesanan <br>"
+            . "Makanan : $makanan <br>";            
+        }
+        if ($makanan != "" && $minuman != "" ) {
+            $sa = "Pesanan <br>"
+            . "Makanan : $makanan <br>"            
+            . "Minuman : $minuman <br>";
+        }   
+        
+        if ($makanan != "" && $minuman != "" && $cemilan != "") {
+            $sa = "Pesanan <br>"
+            . "Makanan : $makanan <br>"            
+            . "Minuman : $minuman <br>"
+            . "Cemilan : $cemilan";
+}
+
+    return "$sa";
+});
