@@ -44,7 +44,34 @@ Route::get('/about', function () {
 });
 
 Route::get('/index', function () {
-    return view('akbar/index');
+    return view('akbar/index', [
+        "title" => "Yayasan Assalaam Bandung"
+    ]);
+});
+
+Route::get('profile', function() {
+    $nama = "Akbar";
+    return view('akbar/profile', compact('nama'));
+});
+
+Route::get('biodata', function() {
+    $nama = "Akbar";
+    $umur = 17;
+    $alamat = "Bandung";
+    $sekolah = "SMK Assalaam";
+    $kelas = "XII RPL 2";
+    $hobi = "Ngoding";
+    return view('akbar/biodata', 
+    compact('nama','umur','alamat','sekolah','kelas','hobi'));
+});
+
+Route::get('blog', function () {
+    $posts = [
+        ['id' => 1, 'title' => 'Lorem Ipsum 1', 'content' => 'Content Pertama'],
+        ['id' => 2, 'title' => 'Lorem Ipsum 2', 'content' => 'Content Kedua'],
+        ['id' => 3, 'title' => 'Lorem Ipsum 3', 'content' => 'Content Ketiga'],
+    ];
+    return view('akbar/blog', compact('posts')); 
 });
 
 Route::get('page/{page?}', function ($hal = 2) {
@@ -63,7 +90,7 @@ Route::get('user/{name?}', function ($nama = "Hello World") {
 //     }
 // });
 
-Route::get('lapar/{makanan?}/{minuman?}/{cemilan?}', function ($makanan = "",$minuman = "",$cemilan = "") {
+Route::get('pesan/{makanan?}/{minuman?}/{cemilan?}', function ($makanan = "",$minuman = "",$cemilan = "") {
     if ($makanan == "" && $minuman == "" && $cemilan == "") {
         $sa = "Anda Tidak Pesan, Silahkan Pulang";
     }
@@ -85,4 +112,71 @@ Route::get('lapar/{makanan?}/{minuman?}/{cemilan?}', function ($makanan = "",$mi
 }
 
     return "$sa";
+});
+
+Route::get('siswa', function () {
+    $siswa = [
+        [
+            'id' => 1, 
+            'nama' => 'Akbar Ginanjar', 
+            'username' => 'akbarginanjar',
+            'email' => 'akbarginanjar@gmail.com',
+            'alamat' => 'Margaluyu 1',
+            'mapel' => [
+                'mapel1' => 'Bahasa Indnesia',
+                'mapel2' => 'Bahasa Inggris',
+                'mapel3' => 'Bahasa Indnesia',
+            ],
+        ],
+        [
+            'id' => 2, 
+            'nama' => 'Kidam Kusnandi', 
+            'username' => 'kidamkusnnd',
+            'email' => 'kidamkus@gmail.com',
+            'alamat' => 'Sayuran',
+            'mapel' => [
+                'mapel1' => 'Bahasa Indnesia',
+                'mapel2' => 'Bahasa Inggris',
+                'mapel3' => 'Bahasa Indnesia',
+            ],
+        ],
+        [
+            'id' => 3, 
+            'nama' => 'Rio Fadli', 
+            'username' => 'riofadli',
+            'email' => 'riofadli@gmail.com',
+            'alamat' => 'Cibaduyut',
+            'mapel' => [
+                'mapel1' => 'Bahasa Indnesia',
+                'mapel2' => 'Bahasa Inggris',
+                'mapel3' => 'Bahasa Indnesia',
+            ],
+        ],
+        [
+            'id' => 4, 
+            'nama' => 'Priyadi Sentosa', 
+            'username' => 'priyadi',
+            'email' => 'sentosa@gmail.com',
+            'alamat' => 'Sayuran',
+            'mapel' => [
+                'mapel1' => 'Bahasa Indnesia',
+                'mapel2' => 'Bahasa Inggris',
+                'mapel3' => 'Bahasa Indnesia',
+            ],
+        ],
+        [
+            'id' => 5, 
+            'nama' => 'Wildan Diar Nadzir', 
+            'username' => 'wildandiar',
+            'email' => 'wildandiar@gmail.com',
+            'alamat' => 'Rancamanyar',
+            'mapel' => [
+                'mapel1' => 'Bahasa Indnesia',
+                'mapel2' => 'Bahasa Inggris',
+                'mapel3' => 'Bahasa Indnesia',
+            ],
+        ],
+    ];
+    
+    return view('akbar/siswa', compact('siswa')); 
 });
