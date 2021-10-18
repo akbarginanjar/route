@@ -39,10 +39,6 @@ Route::get('/cita', function () {
     return view('akbar/cita');
 });
 
-Route::get('/about', function () {
-    return view('akbar/about');
-});
-
 Route::get('/index', function () {
     return view('akbar/index', [
         "title" => "Yayasan Assalaam Bandung"
@@ -180,3 +176,27 @@ Route::get('siswa', function () {
     
     return view('akbar/siswa', compact('siswa')); 
 });
+
+Route::get('/testmodel', function() {
+    $query = App\Models\Post::all();
+    return $query;
+    });
+
+    Route::get('/testbio', function() {
+        $query = App\Models\latbiodata::all();
+        return $query;
+        });
+
+    Route::get('/about', function () {
+        return view('akbar/about');
+    });
+
+    Route::get('/post', function () {
+        $query = App\Models\Post::all();
+        return view('akbar/test-post', compact('query'));
+    });
+
+    Route::get('/biodata', function () {
+        $query = App\Models\latbiodata::all();
+        return view('akbar/test-bio', compact('query'));
+    });

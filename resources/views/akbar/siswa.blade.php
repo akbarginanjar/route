@@ -16,7 +16,7 @@
     email : {{$data['email']}} <br>
     alamat : {{$data['alamat']}} <br>
 
-    @foreach($data['mapel'] as $key => $value)
+    @foreach($data['mapel'] as $value)
     <ul>
     <li>{{$value}}</li>
     </ul>
