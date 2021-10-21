@@ -17,6 +17,7 @@ class PostsTableSeeder extends Seeder
         $posts = [
             ['title'=>'Tips Cepat Nikah', 'content'=>'lorem ipsum'],
             ['title'=>'Haruskah Menunda Nikah?', 'content'=>'lorem ipsum'],
+            ['title'=>'Cara Cepat Cerai', 'content'=>'lorem ipsum'],
             ['title'=>'Membangun Visi Misi Keluarga', 'content'=>'lorem ipsum']
             ];
             // masukkan data ke database

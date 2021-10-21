@@ -1,5 +1,11 @@
 <?php
 
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\BarangController;
+use App\Http\Controllers\PesananController;
+use App\Http\Controllers\PembelianController;
+use App\Http\Controllers\PembeliController;
+use App\Http\Controllers\SuplierController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -183,7 +189,7 @@ Route::get('/testmodel', function() {
     });
 
     Route::get('/testbio', function() {
-        $query = App\Models\latbiodata::all();
+        $query = App\Models\Barang::all();
         return $query;
         });
 
@@ -200,3 +206,16 @@ Route::get('/testmodel', function() {
         $query = App\Models\latbiodata::all();
         return view('akbar/test-bio', compact('query'));
     });
+
+    Route::get('/postcontrol', [PostController::class, 'index']);
+
+    Route::get('/barangcontrol', [BarangController::class, 'barang']);
+
+    Route::get('/pesanancontrol', [PesananController::class, 'pesanan']);
+
+    Route::get('/pembeliancontrol', [PembelianController::class, 'pembelian']);
+
+    Route::get('/pembelicontrol', [PembeliController::class, 'pembeli']);
+
+    Route::get('/supliercontrol', [SuplierController::class, 'suplier']);
+
